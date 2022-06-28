@@ -4,55 +4,66 @@ body {
   font-size: 14px;
 }
 
+/* navigation bar css */
 .nav-container {
+  display: flex;
   height: 60px;
+  align-items: center;
 }
 
 .nav-container-left {
   display: flex;
-  float:left;
-  width: 50%;
-  height: 60px;
+  flex: none;
+  width: 125px;
+  justify-content: space-between;
   align-items: center;
+  margin-left: 25px;
 }
 
 .nav-container-right {
   display: flex;
-  float: right;
-  width: 50%;
-  height: 60px;
-  justify-content: flex-end;
+  margin-left: auto;
+  margin-right: 20px;
+  justify-content: space-between;
+  width: 185px;
   align-items: center;
 }
 
-.nav-container-right img {
-  width: 20px;
+.image-link {
+  margin-right: 10px;
 }
 
-
-
-#info-link {
-  margin: 0 5px 0 20px;
-  padding: 5px;
+.menu-button img {
+  width: 18px;
 }
 
-#store-link {
-  margin: 0 5px;
-  padding: 5px;
+.profile-button img {
+  width: 33px;
+  border-radius: 50%;
 }
 
-#gmail-link {
-  margin: 0 15px 0 0;
+/* main section css */
+
+.logo-box {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 290px;
 }
 
-#image-link {
-  margin: 0 30px 0 0;
+.logo-box img {
+  width: 272px;
 }
 
-#menu-button {
-  margin: 0 35px 0 0;
+.search-box {
+  text-align: center;
 }
 
-#my-profile {
-  margin: 0 15px 0 0;
+.search-box input {
+  width: 582px;
+  height: 44px;
+}
+
+.empty-box {
+  height: 300px;
 }

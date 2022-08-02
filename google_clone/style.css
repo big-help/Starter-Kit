@@ -13,7 +13,6 @@ body {
 
 .nav-container-left {
   display: flex;
-  flex: none;
   width: 125px;
   justify-content: space-between;
   align-items: center;
@@ -43,7 +42,6 @@ body {
 }
 
 /* main section css */
-
 .logo-box {
   display: flex;
   align-items: flex-end;
@@ -57,13 +55,92 @@ body {
 
 .search-box {
   text-align: center;
+  justify-content: space-between;
 }
 
 .search-box input {
-  width: 582px;
-  height: 44px;
+  width: 584px;
+  height: 46px;
+  margin: 26px 0 0 0;
+  padding: 10px 80px 10px 40px;
+  border: 1px solid #d7d7d7;
+  border-radius: 30px;
+  background-image: url(./images/search-icon.png), url(./images/keyboard.png), url('./images/microphone.png');
+  background-size: 15px, 20px, 20px;
+  background-position: 15px 15px, 505px 13px, 545px 12px;
+  background-repeat: no-repeat;
+  transition: box-shadow .1s;
 }
 
-.empty-box {
-  height: 300px;
+.search-box input:focus {
+  outline: none;
+}
+
+.search-box input:hover {
+  box-shadow: 0 0 5px rgb(187, 187, 187);
+}
+
+.content-box {
+  display: block;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.content-box *{
+  display: inline-block;
+}
+
+.content-box .google-search-text {
+  background-color: rgb(250, 250, 250);
+  padding: 10px 15px;
+}
+
+.content-box .doodles-box {
+  background-color: rgb(250, 250, 250);
+  padding: 10px 15px;
+  margin-left: 10px;
+}
+
+.content-box *:hover {
+  box-shadow: 0 0 5px rgb(187, 187, 187);
+}
+
+footer {
+  display: block;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+.first-footer {
+  background-color: rgb(240, 240, 240);
+  padding: 17px 0 17px 30px;
+  border-bottom: 1px solid rgb(230, 230, 230);
+}
+
+.second-footer {
+  background-color: rgb(240, 240, 240);
+}
+
+.second-footer {
+  display: flex;
+  height: 50px;
+}
+
+.second-footer .left-footer {
+  display: flex;
+  width: 200px;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0 0 30px;
+
+}
+
+.second-footer .right-footer {
+  display: flex;
+  width: 200px;
+  margin: 0 30px 0 auto;
+  justify-content: space-between;
+  align-items: center;
+}
 }

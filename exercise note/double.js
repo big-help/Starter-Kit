@@ -1,29 +1,38 @@
-const arr1 = [1, 2, 1]; 
-const arr2 = [1, 3, 5, 3, 1]; 
+
+const arr1 = [1, 2, 1];
+const arr2 = [1, 3, 5, 3, 1];
 const arr3 = [1, 6, 8, 4, 2, 3];
 
 function doubleArray(arr) {
+  let doubledArray = [...arr];
+  let result = doubledArray;
+  
   for (i = 0; i < arr.length; i++) {
-    arr[i + arr.length] = arr[i];
+    doubledArray.push(arr[i]);
   }
-  return arr;
+  
+  return result;
 }
 
-console.log(doubleArray(arr3));
+
 
 const result1 = doubleArray(arr1); // [1, 2, 1, 1, 2, 1]를 반환해야 합니다.
 const result2 = doubleArray(arr2); // [1, 3, 5, 3, 1, 1, 3, 5, 3, 1]를 반환해야 합니다.
 const result3 = doubleArray(arr3); // [1, 6, 8, 4, 2, 3, 1, 6, 8, 4, 2, 3]를 반환해야 합니다.
+
+
+
+if (checkResult(result1, arr1)) {
+  console.log(true);
+}
 
 if (
   checkResult(result1, arr1) &&
   checkResult(result2, arr2) &&
   checkResult(result3, arr3)
 ) {
-  console.log("🎉");
-} else {
-  console.log("error")
-} 
+  alert("🎉");
+}
 
 
 

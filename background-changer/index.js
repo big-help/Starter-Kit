@@ -32,7 +32,7 @@ function getRandomHexCode () {
   let result = "#";
 
   for (i = 0; i < 6; i++) {
-    result += hex_code[Math.floor(Math.random() * 16)];
+    result += hex_code[Math.floor(Math.random() * hex_code.length)];
   }
   return result;
 }

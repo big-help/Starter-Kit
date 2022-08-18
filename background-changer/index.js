@@ -1,5 +1,6 @@
 const buttonElement = document.querySelector("button");
 const pElement = document.querySelector("p");
+const bodyElement = document.querySelector("body");
 const hex_code = [
   0,
   1,
@@ -22,8 +23,6 @@ const hex_code = [
 buttonElement.addEventListener("click", changeColor);
 
 function changeColor (event) {
-  const bodyElement = document.querySelector("body");
-
   bodyElement.style.backgroundColor = getRandomHexCode();
   pElement.textContent = getRandomHexCode();
 }

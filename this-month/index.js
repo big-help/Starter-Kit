@@ -46,7 +46,6 @@ function displayFirstWeeks () {
     trElement[weeks].children[i].textContent = i;
   }
   displayLastOfWeeks();
-   
 }  
 
 function displayLastOfWeeks () {

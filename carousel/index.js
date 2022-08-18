@@ -17,7 +17,6 @@ css 파일에 hide 클래스 display: none; 추가하기.
 
 */
 
-
 const dotListElement = document.querySelector(".dot-list");
 const dotItemElement = document.querySelectorAll(".dot-item");
 let dotItemArrayLength = dotItemElement.length;
@@ -44,7 +43,6 @@ function showPrevImage () {
   }
   return;
 }
-  
 
 function addPrevHideClass (num) {
   if (num === 0) {
@@ -90,15 +88,10 @@ function showDotNumImage (event) {
       addCurrentImageHideClass(i, event);
     }
   }
-  
-  for (i = 0; i < dotItemArrayLength; i++) {
-    
-  }
   return;
 }
 
 function addCurrentImageHideClass (num, event) {
-  
   imgElement[num].classList.add("hide");
   
   for (i = 0; i < dotItemArrayLength; i++) {
@@ -108,4 +101,3 @@ function addCurrentImageHideClass (num, event) {
   }
   return;
 }
-

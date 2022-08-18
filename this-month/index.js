@@ -30,7 +30,10 @@ const days = ["일", "월", "화", "수", "목", "금", "토"];
 const thElement = document.querySelectorAll("th");
 const trElement = document.querySelectorAll("tr");
 const firstDate = new Date(date.getFullYear(), date.getMonth(), 1);
+const lastDate = new Date(date.getFullYear(), date.getMonth() + 1, 0);
 const firstDay = firstDate.getDay();
+const lastDay = lastDate.getDay();
+let weeks = 1;
 
 function displayWeekdays () {
   for (i = 0; i < days.length; i++) {
@@ -38,26 +41,32 @@ function displayWeekdays () {
   }
 }
   
-function displayDates () {
-  let x = 1;
-  let tableLine = trElement[x];
-  
-  for (i = 0; i < days.length; i++) {
-    
-    if (i === firstDay) {
-      for (i = firstDay; i < days.length; i++) {
-        tableLine.children[i].textContent = i;
-      }
-      x = x + 1;
-    }
-    for (j = 0; j < days.length; j++) {
-      tableLine.children[j].textContent = j;
-    }
-    x = x + 1;
+function displayFirstWeeks () {
+  for (i = firstDay; i < days.length; i++) {
+    trElement[weeks].children[i].textContent = i;
+  }
+  displayLastOfWeeks();
+   
+}  
+
+function displayLastOfWeeks () {
+  if (trElement[weeks].children[6]) {
+    displayNthWeek();
+    displayNthWeek();
+    displayNthWeek();
+    displayNthWeek();
   }
 }
 
-
+function displayNthWeek () {
+  let firstDateOfWeeks = Number(trElement[weeks].children[6].innerText);
+  weeks = weeks + 1;
+  
+  for (i = 0; i < days.length; i++) {
+    if (firstDateOfWeeks + i < lastDate.getDate())
+    trElement[weeks].children[i].textContent = firstDateOfWeeks + i + 1;      
+  }
+}
 
 displayWeekdays();
-displayDates();
+displayFirstWeeks();

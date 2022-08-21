@@ -70,8 +70,6 @@ function answerChecker (num) {
   let strike = 0;
   let ball = 0;
 
-  console.log(arrayOfUserNum, arrayOfAnswer)
-
   for (let i = 0; i < DIGIT; i++) {
     for (const num of arrayOfAnswer) {
       if (arrayOfUserNum[i] === arrayOfAnswer[i]) {
@@ -84,7 +82,6 @@ function answerChecker (num) {
     }   
   }
 
-  console.log(`${strike} STRIKE ${ball} BALL`);
   return addTryList (num, strike, ball);
 }
 

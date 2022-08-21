@@ -11,7 +11,6 @@
       href="https://fonts.googleapis.com/css?family=Varela+Round&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" href="/images/favicon.ico" />
     <link rel="stylesheet" type="text/css" href="style.css" />
     <title>Baseball Project</title>
   </head>
@@ -22,14 +21,14 @@
       <!-- 야구게임 Start -->
       <div class="contents-box">
         <div class="button-box">
-          <button class="game-start">게임 시작</button>
-          <button class="game-restart">다시하기</button>
+          <button id="game-start">게임 시작</button>
+          <button id="game-restart">다시하기</button>
         </div>
-        <div class="game-box">
-          <p>1</p>
+        <div class="result-box">
         </div>
-        <div class="text-box">
-          <input type="text" placeholder="Press the Start!" disabled>
+        <div id="answer-box">
+          <input id="answer-input" type="text" placeholder="Press the Start!" disabled>
+          <button id="submit-button">제출</button>
         </div>
       </div>
       <!-- 야구게임 End -->

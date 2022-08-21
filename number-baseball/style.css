@@ -28,15 +28,38 @@ h1 {
   font-size: 1.5rem;
 }
 
-.text-box {
+.result-box {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 50px;
+  margin-top: 50px;
+  height: 500px;
+  font-size: 2rem;
+  background-color: aliceblue;
+}
+
+.result-box > p {
+  margin: 5px 0;
+}
+
+#answer-box {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 50px;
 }
 
-.text-box > input {
-  width: 200px;
+#answer-box > input {
+  width: 300px;
   height: 50px;
   font-size: 1.5rem;
   text-align: center;
+}
+
+#submit-button {
+  margin-left: 50px;
+  width: 100px;
+  height: 50px;
+  font-size: 1.5rem;
 }

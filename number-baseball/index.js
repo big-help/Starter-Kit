@@ -25,7 +25,7 @@ function generateRandomNumber () {
     const randomNumber = Math.floor(Math.random() * numberSet.length);
     
     numberResult[i] = numberSet[randomNumber];
-    
+
     if (numberResult[0] === 0) {
       return generateRandomNumber();
     }
@@ -52,9 +52,12 @@ function submitAnswer (event) {
 
 function answerVerificationChecker () {
   const answerOfUser = Number(answerInputBox.value);
+  const uniqueNumOfUser = [... new Set(answerInputBox.value)];
 
   if (answerOfUser < MIN_ANSWER_DIGIT || answerOfUser > MAX_ANSWER_DIGIT) {
-    alert(`${DIGIT}자리의 숫자를 입력해주세요.`);
+    alert(`중복되지 않는 ${DIGIT}자리의 숫자를 입력해주세요.`);
+  } else if (uniqueNumOfUser.length < DIGIT) {
+    alert(`중복되지 않는 ${DIGIT}자리의 숫자를 입력해주세요.`);
   } else {
     answerChecker(answerOfUser);
   }

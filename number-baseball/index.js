@@ -23,18 +23,15 @@ function generateRandomNumber () {
 
   for (let i = 0; i < DIGIT; i++) {
     const randomNumber = Math.floor(Math.random() * numberSet.length);
-
+    
     numberResult[i] = numberSet[randomNumber];
-
+    
     if (numberResult[0] === 0) {
       return generateRandomNumber();
     }
-
     numberSet.splice(randomNumber, 1);
   }
-
   randomDigitNumber = numberResult.join("");
-
   ANSWER = randomDigitNumber;
   return ANSWER;
 }
@@ -90,9 +87,7 @@ function addTryList (answerOfUser, strike, ball) {
   const tryList = document.createTextNode(`${answerOfUser} / ${strike} STRIKE ${ball} BALL`);
 
   p.appendChild(tryList);
-
   resultBox[0].appendChild(p);
-
   return checkResult(strike, ball);
 }
 

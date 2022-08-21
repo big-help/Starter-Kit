@@ -12,6 +12,7 @@ const submitButton = document.getElementById("submit-button");
 const resultBox = document.getElementsByClassName("result-box");
 
 startButton.addEventListener("click", activateGame);
+reStratButton.addEventListener("click", refreshPage);
 answerInputBox.addEventListener("keydown", submitAnswer);
 submitButton.addEventListener("click", answerVerificationChecker);
 
@@ -48,6 +49,7 @@ function activateGame() {
 function submitAnswer (event) {
   if (event.keyCode === 13) {
     answerVerificationChecker();
+    answerInputBox.value = "";
   }
 }
 
@@ -59,13 +61,12 @@ function answerVerificationChecker () {
   } else {
     answerChecker(answerOfUser);
   }
+  answerInputBox.value = "";
 }
 
 function answerChecker (num) {
   const arrayOfUserNum = Array.from(String(num), Number);
   const arrayOfAnswer = Array.from(String(ANSWER), Number);
-  const copyOfUserNum = [...arrayOfUserNum];
-  const copyOfAnswer = [...arrayOfAnswer];
   let strike = 0;
   let ball = 0;
 
@@ -82,13 +83,36 @@ function answerChecker (num) {
       }
     }   
   }
+
+  console.log(`${strike} STRIKE ${ball} BALL`);
+  return addTryList (num, strike, ball);
 }
 
-function addTryList (answerOfUser) {
+function addTryList (answerOfUser, strike, ball) {
   const p = document.createElement("p");
-  const tryList = document.createTextNode(`${answerOfUser} / 1S 1B`);
+  const tryList = document.createTextNode(`${answerOfUser} / ${strike} STRIKE ${ball} BALL`);
 
   p.appendChild(tryList);
 
   resultBox[0].appendChild(p);
+
+  return checkResult(strike, ball);
+}
+
+function checkResult (strike, ball) {
+  const submittedAnswerCount = resultBox[0].querySelectorAll("p").length;
+
+  if (submittedAnswerCount === 10) {
+    alert("다시 도전해주세요.");
+    window.location.reload();
+  } else if (strike === 4) {
+    alert("정답입니다!");
+    answerInputBox.disabled = true;
+    answerInputBox.style.fontSize = "1rem";
+    answerInputBox.placeholder = `다시하기를 눌러 새로운 게임을 시작해보세요.`;
+  }
+}
+
+function refreshPage () {
+  window.location.reload();
 }

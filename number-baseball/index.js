@@ -54,13 +54,16 @@ function answerVerificationChecker () {
   const answerOfUser = Number(answerInputBox.value);
   const uniqueNumOfUser = [... new Set(answerInputBox.value)];
 
-  if (answerOfUser < MIN_ANSWER_DIGIT || answerOfUser > MAX_ANSWER_DIGIT) {
+  if (uniqueNumOfUser[0] === "0") {
+    alert(`첫번째 자리에는 0이 들어갈 수 없습니다.`);
+  } else if (answerOfUser < MIN_ANSWER_DIGIT || answerOfUser > MAX_ANSWER_DIGIT) {
     alert(`중복되지 않는 ${DIGIT}자리의 숫자를 입력해주세요.`);
   } else if (uniqueNumOfUser.length < DIGIT) {
     alert(`중복되지 않는 ${DIGIT}자리의 숫자를 입력해주세요.`);
   } else {
     answerChecker(answerOfUser);
   }
+  
   answerInputBox.value = "";
 }
 

@@ -11,4 +11,61 @@ h1 {
   font-family: "Pacifico", cursive;
   text-align: center;
   font-size: 72px;
+  margin-top: 100px;
+}
+
+.current-date-box{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 200px;
+  font-size: 3rem;
+}
+
+.current-date-box p {
+  margin-top: 30px;
+}
+
+.current-month {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+  font-size: 2rem;
+}
+
+table {
+  position: relative;
+  left: 650px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+th, td {
+  border: 1px solid black;
+  width: 60px;
+  height: 40px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.left-arrow {
+  position: absolute;
+  width: 100px;
+  left: 550px;
+  top: 680px;
+  font-size: 3rem;
+}
+
+.right-arrow {
+  position: absolute;
+  width: 100px;
+  left: 1120px;
+  top: 680px;
+  font-size: 3rem;
+}
+
+.hidden {
+  display: none;
 }

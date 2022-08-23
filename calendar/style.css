@@ -19,7 +19,7 @@ h1 {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: 200px;
+  margin-top: 50px;
   font-size: 3rem;
 }
 
@@ -50,22 +50,22 @@ th, td {
   vertical-align: middle;
 }
 
-.left-arrow {
+#left-arrow {
   position: absolute;
   width: 100px;
-  left: 550px;
-  top: 680px;
+  left: 540px;
+  top: 600px;
   font-size: 3rem;
 }
 
-.right-arrow {
+#right-arrow {
   position: absolute;
   width: 100px;
   left: 1120px;
-  top: 680px;
+  top: 600px;
   font-size: 3rem;
 }
 
 .hidden {
-  border: none;
+  visibility: hidden;
 }

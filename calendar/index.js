@@ -4,18 +4,25 @@ const WEEKDAY = 7;
 
 const date = new Date();
 const current_date = new Date(date.getFullYear(), date.getMonth(), date.getDate());
-const first_date = new Date(date.getFullYear(), date.getMonth(), 1);
+
+let year = current_date.getFullYear();
+let month = current_date.getMonth();
 
 const current_day_box = document.getElementById("current-day");
 const current_date_box = document.getElementById("current-date");
 const current_month_box = document.getElementsByClassName("current-month");
 const trElement = document.getElementsByTagName("tr");
+const leftArrow = document.getElementById("left-arrow");
+const rightArrow = document.getElementById("right-arrow");
 const arr_day = [
   "SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"
 ];
 const arr_month = [
   "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"
 ];
+
+leftArrow.addEventListener("click", showPrevCalendar);
+// rightArrow.addEventListener("click", showNextCalendar);
 
 function updateCurrentDateInfo () {
   current_day_box.textContent = arr_day[current_date.getDay()];
@@ -42,20 +49,24 @@ function getMonthDateObject (year, month) {
 }
 
 function updateCalendarDateInfo (year, month) {
-  let month_date_array = getMonthDateObject(year, month);
-  console.log(month_date_array);
+  const month_date_object = getMonthDateObject(year, month);
+  let weeks = 1;
 
-  for (const keys of month_date_array) {
-    
-    
-  }
-
-    for (let j = 1; j < MAX_WEEK_NUM; j++) {
-      trElement[j].children[date_info.getDay()].textContent = date_info.getDate();
-      if (trElement[j].children[date_info.getDay()] === 6) break;
+  for (const keys in month_date_object) {
+    trElement[weeks].children[month_date_object[keys]].textContent = keys;
+    if (month_date_object[keys] === 6) {
+      weeks += 1;
     }
+  }
+}
+
+function showPrevCalendar () {
+  console.log(current_date.getMonth(), current_date.getFullYear());
+  month = month - 1;
+
+  updateCalendarDateInfo(year, month);
 }
 
 updateCurrentDateInfo();
 setDayName();
-updateCalendarDateInfo(2022, 9);
+updateCalendarDateInfo(2022, 7);

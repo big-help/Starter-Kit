@@ -43,7 +43,7 @@ table {
 }
 
 th, td {
-  border: 1px solid black;
+  border: 1px solid black; 
   width: 60px;
   height: 40px;
   text-align: center;
@@ -67,5 +67,5 @@ th, td {
 }
 
 .hidden {
-  display: none;
+  border: none;
 }

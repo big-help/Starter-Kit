@@ -41,8 +41,9 @@ function getMonthDateObject (year, month) {
   for (let i = 1; i < MAX_DATE_NUM; i++) {
     const date_info = new Date(year, month, i);
 
-    if (date_info.getMonth() === month)
+    if (date_info.getMonth() === month) {
     month_date_object[date_info.getDate()] = date_info.getDay();
+		}
   }
 
   return month_date_object;

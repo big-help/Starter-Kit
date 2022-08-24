@@ -14,6 +14,7 @@ const current_day_box = document.getElementById("current-day");
 const current_date_box = document.getElementById("current-date");
 const current_month_box = document.getElementsByClassName("current-month");
 const trElement = document.getElementsByTagName("tr");
+const tdElement = document. querySelectorAll("td");
 const leftArrow = document.getElementById("left-arrow");
 const rightArrow = document.getElementById("right-arrow");
 const arr_day = [
@@ -22,9 +23,6 @@ const arr_day = [
 const arr_month = [
   "JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"
 ];
-
-leftArrow.addEventListener("click", showPrevCalendar);
-rightArrow.addEventListener("click", showNextCalendar);
 
 function updateCurrentDateInfo (year, month, date, day) {
   current_day_box.textContent = arr_day[day];
@@ -73,7 +71,7 @@ function showPrevCalendar () {
 	date = 1;
 	day = new Date(year, month, date).getDay();
 
-	updateCurrentDateInfo(year, month, 1, day);
+	updateCurrentDateInfo(year, month, date, day);
 	resetCalendar();
   updateCalendarDateInfo(year, month);
 }
@@ -89,7 +87,7 @@ function showNextCalendar () {
 	date = 1;
 	day = new Date(year, month, date).getDay();
 
-	updateCurrentDateInfo(year, month, 1, day);
+	updateCurrentDateInfo(year, month, date, day);
 	resetCalendar();
   updateCalendarDateInfo(year, month);
 }
@@ -102,6 +100,26 @@ function resetCalendar () {
 	}
 }
 
+function changeDateInfo(event) {
+	date = event.target.textContent;
+	day = new Date(year, month, date).getDay();
+
+	updateCurrentDateInfo(year, month, date, day);
+}
+
 updateCurrentDateInfo(year, month, date, day);
-setDayName();
 updateCalendarDateInfo(year, month);
+setDayName();
+
+leftArrow.addEventListener("click", showPrevCalendar);
+rightArrow.addEventListener("click", showNextCalendar);
+tdElement.forEach(function(element) {
+	if (element.innerText !== "") {
+		element.addEventListener("click", changeDateInfo);
+	}
+});
+
+
+
+
+

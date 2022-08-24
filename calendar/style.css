@@ -31,15 +31,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 50px;
   font-size: 2rem;
-}
-
-table {
-  position: relative;
-  left: 650px;
-  text-align: center;
-  margin-top: 30px;
 }
 
 th, td {
@@ -50,20 +42,38 @@ th, td {
   vertical-align: middle;
 }
 
+.calendar-box {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+table {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
 #left-arrow {
-  position: absolute;
-  width: 100px;
-  left: 540px;
-  top: 600px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   font-size: 3rem;
 }
 
 #right-arrow {
-  position: absolute;
-  width: 100px;
-  left: 1120px;
-  top: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
   font-size: 3rem;
+}
+
+#left-arrow:hover {
+  cursor: pointer;
+}
+
+#right-arrow:hover {
+  cursor: pointer;
 }
 
 .hidden {

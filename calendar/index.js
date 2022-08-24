@@ -75,6 +75,7 @@ function showPrevCalendar () {
 	updateCurrentDateInfo(year, month, date, day);
 	resetCalendar();
   updateCalendarDateInfo(year, month);
+	addChangeDateInfo();
 }
 
 function showNextCalendar () {
@@ -91,6 +92,7 @@ function showNextCalendar () {
 	updateCurrentDateInfo(year, month, date, day);
 	resetCalendar();
   updateCalendarDateInfo(year, month);
+	addChangeDateInfo();
 }
 
 function resetCalendar () {
@@ -108,14 +110,23 @@ function changeDateInfo(event) {
 	updateCurrentDateInfo(year, month, date, day);
 }
 
+function addChangeDateInfo () {
+	tdElement.forEach(function(element) {
+		if (element.innerText !== "") {
+			element.addEventListener("click", changeDateInfo);
+		}
+	
+		if (element.innerHTML === "") {
+			element.removeEventListener("click", changeDateInfo);
+		}
+	});
+}
+
 updateCurrentDateInfo(year, month, date, day);
 updateCalendarDateInfo(year, month);
+addChangeDateInfo();
 setDayName();
 
 leftArrow.addEventListener("click", showPrevCalendar);
 rightArrow.addEventListener("click", showNextCalendar);
-tdElement.forEach(function(element) {
-	if (element.innerText !== "") {
-		element.addEventListener("click", changeDateInfo);
-	}
-});
+

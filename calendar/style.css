@@ -34,8 +34,14 @@ h1 {
   font-size: 2rem;
 }
 
-th, td {
-  border: 1px solid black; 
+th {
+  width: 60px;
+  height: 40px;
+  text-align: center;
+  vertical-align: middle;
+}
+
+td {
   width: 60px;
   height: 40px;
   text-align: center;

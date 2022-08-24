@@ -1,12 +1,14 @@
 const MAX_DATE_NUM = 32;
-const MAX_WEEK_NUM = 6;
+const MAX_WEEK_NUM = 7;
 const WEEKDAY = 7;
 
-const date = new Date();
-const current_date = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+const dateObj = new Date();
+const current_date = new Date(dateObj.getFullYear(), dateObj.getMonth(), dateObj.getDate());
 
 let year = current_date.getFullYear();
 let month = current_date.getMonth();
+let day = current_date.getDay();
+let date = current_date.getDate();
 
 const current_day_box = document.getElementById("current-day");
 const current_date_box = document.getElementById("current-date");
@@ -22,12 +24,12 @@ const arr_month = [
 ];
 
 leftArrow.addEventListener("click", showPrevCalendar);
-// rightArrow.addEventListener("click", showNextCalendar);
+rightArrow.addEventListener("click", showNextCalendar);
 
-function updateCurrentDateInfo () {
-  current_day_box.textContent = arr_day[current_date.getDay()];
-  current_date_box.textContent = current_date.getDate();
-  current_month_box[0].children[0].textContent = `${arr_month[current_date.getMonth()]} ${current_date.getFullYear()}`;
+function updateCurrentDateInfo (year, month, date, day) {
+  current_day_box.textContent = arr_day[day];
+  current_date_box.textContent = date;
+  current_month_box[0].children[0].textContent = `${year}년 ${month+1}월`;
 }
 
 function setDayName () {
@@ -61,12 +63,45 @@ function updateCalendarDateInfo (year, month) {
 }
 
 function showPrevCalendar () {
-  console.log(current_date.getMonth(), current_date.getFullYear());
-  month = month - 1;
+  if (month === 0) {
+		year -= 1;
+		month = 11;
+	} else {
+		month -= 1;
+	}
 
+	date = 1;
+	day = new Date(year, month, date).getDay();
+
+	updateCurrentDateInfo(year, month, 1, day);
+	resetCalendar();
   updateCalendarDateInfo(year, month);
 }
 
-updateCurrentDateInfo();
+function showNextCalendar () {
+	if (month === 11) {
+		year += 1;
+		month = 0;
+	} else {
+		month += 1;
+	}
+	
+	date = 1;
+	day = new Date(year, month, date).getDay();
+
+	updateCurrentDateInfo(year, month, 1, day);
+	resetCalendar();
+  updateCalendarDateInfo(year, month);
+}
+
+function resetCalendar () {
+	for (let i = 1; i < MAX_WEEK_NUM; i++) {
+		for (let j = 0; j < WEEKDAY; j++) {
+			trElement[i].children[j].textContent = "";
+		}
+	}
+}
+
+updateCurrentDateInfo(year, month, date, day);
 setDayName();
-updateCalendarDateInfo(2022, 7);
+updateCalendarDateInfo(year, month);

@@ -118,8 +118,3 @@ tdElement.forEach(function(element) {
 		element.addEventListener("click", changeDateInfo);
 	}
 });
-
-
-
-
-

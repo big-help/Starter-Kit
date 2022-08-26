@@ -129,4 +129,3 @@ setDayName();
 
 leftArrow.addEventListener("click", showPrevCalendar);
 rightArrow.addEventListener("click", showNextCalendar);
-

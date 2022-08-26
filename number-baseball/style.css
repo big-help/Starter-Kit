@@ -39,7 +39,7 @@ h1 {
   font-size: 2rem;
   background-color: aliceblue;
   background-image: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.95)),url("./images/result_image.png");
-  background-repeat: no-repeat;
+  background-repeat: repeat;
   background-position: center;
   background-size: contain;
 }
